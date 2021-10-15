@@ -8,9 +8,9 @@ function LoginForm({ existingUser }) {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await firebaseAuth.registerUser(username, password);
-      setUsername(" ");
-      setPassword(" ");
+      await firebaseAuth.loginUser(username, password);
+      setUsername("");
+      setPassword("");
     } catch (error) {
       alert(error.message);
     }
@@ -39,7 +39,7 @@ function LoginForm({ existingUser }) {
             <input
               type="email"
               required
-              value="username"
+              value="email@email.com"
               onChange={(e) => setUsername(e.target.value)}
               className="input-text"
             />
